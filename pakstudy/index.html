@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pak Study · Study Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span> Study Hub</div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+  </div>
+  <main>
+    <div class="breadcrumb"><a href="../index.html">Study Hub</a> / Pak Study</div>
+    <div class="hero">
+      <h1>Pak Study sources</h1>
+      <p>Choose where you'd like to revise from.</p>
+    </div>
+
+    <div class="grid">
+      <a class="nav-card" href="testpoint/index.html">
+        <div class="seal">TP</div>
+        <div class="card-body">
+          <p class="card-title">Testpoint</p>
+          <p class="card-sub">44 lessons · 200 MCQs each</p>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+      <div class="nav-card disabled">
+        <div class="seal">?</div>
+        <div class="card-body">
+          <p class="card-title">More sources</p>
+          <p class="card-sub">Coming soon</p>
+        </div>
+        <span class="badge-soon">Soon</span>
+      </div>
+    </div>
+
+    <footer class="encourage">
+      <strong>Testpoint</strong> is ready. More sources will land here as they're added.
+    </footer>
+  </main>
+  <script src="../theme.js"></script>
+</body>
+</html>
