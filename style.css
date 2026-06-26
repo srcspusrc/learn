@@ -1,0 +1,130 @@
+/* style.css — shared design system for the Study Hub site.
+   Place this file at the REPO ROOT. Every page references it with a
+   relative path (../style.css, ../../style.css, etc. depending on depth). */
+
+:root {
+  --bg: #0B1614; --bg-soft: #102018; --card: #132820; --card-border: #1F3B2E;
+  --text: #EAF3EC; --text-dim: #8FAA9C; --accent: #34D399; --accent-soft: rgba(52,211,153,0.14);
+  --accent-2: #FBBF24; --accent-2-soft: rgba(251,191,36,0.16);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35); --radius: 16px;
+}
+html[data-theme="light"] {
+  --bg: #FAF7EF; --bg-soft: #F1ECDD; --card: #FFFFFF; --card-border: #E7E0CC;
+  --text: #1B2420; --text-dim: #66766C; --accent: #0F9D6E; --accent-soft: rgba(15,157,110,0.10);
+  --accent-2: #B5790A; --accent-2-soft: rgba(181,121,10,0.12); --shadow: 0 10px 24px rgba(20,30,25,0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(circle at top, var(--bg-soft), var(--bg) 55%);
+  color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; transition: background .25s ease, color .25s ease;
+}
+
+h1, h2, h3, .card-title { font-family: 'Sora', system-ui, sans-serif; }
+a { color: var(--accent); }
+
+.topbar {
+  position: sticky; top: 0; z-index: 20; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; padding: 14px clamp(16px, 4vw, 40px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-border);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
+.brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+
+.theme-toggle {
+  border: 1px solid var(--card-border); background: var(--card); color: var(--text);
+  border-radius: 999px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; gap: 6px;
+  transition: border-color .2s ease, transform .15s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle:active { transform: scale(0.96); }
+
+main { max-width: 800px; margin: 0 auto; padding: clamp(20px, 5vw, 48px) clamp(16px, 5vw, 24px) 80px; }
+
+.breadcrumb { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 18px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+
+.hero { text-align: center; margin-bottom: 32px; }
+.hero h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 8px; font-weight: 800; }
+.hero p { color: var(--text-dim); margin: 0; font-size: 0.95rem; }
+
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .grid.two-col { grid-template-columns: 1fr 1fr; } }
+
+.nav-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: var(--shadow); text-decoration: none; color: var(--text);
+  transition: transform .15s ease, border-color .2s ease;
+}
+.nav-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.nav-card.disabled { opacity: 0.5; pointer-events: none; }
+.nav-card.compact { padding: 13px 16px; gap: 12px; }
+
+.seal {
+  flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
+  border: 2px dashed var(--accent); color: var(--accent); display: flex;
+  align-items: center; justify-content: center; font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 0.95rem; transform: rotate(-6deg);
+}
+.seal.small { width: 34px; height: 34px; font-size: 0.8rem; }
+
+.card-body { flex: 1; }
+.card-title { font-weight: 700; font-size: 1.0rem; margin: 0 0 2px; }
+.card-sub { color: var(--text-dim); font-size: 0.83rem; margin: 0; }
+.chevron { color: var(--text-dim); font-size: 1.2rem; }
+
+.badge-soon {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+  background: var(--accent-2-soft); color: var(--accent-2); padding: 3px 9px; border-radius: 999px;
+}
+
+/* ----- Lesson page (question content) ----- */
+.question-block {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+  padding: clamp(18px, 4vw, 26px); margin-bottom: 18px; box-shadow: var(--shadow); position: relative;
+}
+.q-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.q-title { font-weight: 700; font-size: 1.05rem; margin: 0; padding-top: 4px; }
+.answer {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-2-soft); color: var(--accent-2); border-radius: 10px;
+  padding: 8px 14px; font-weight: 600; font-size: 0.92rem; margin: 4px 0 14px 54px;
+}
+.answer::before { content: "✓"; font-weight: 800; }
+details.explanation { margin-left: 54px; border-top: 1px solid var(--card-border); padding-top: 10px; }
+details.explanation > summary {
+  cursor: pointer; list-style: none; font-weight: 600; font-size: 0.88rem;
+  color: var(--text-dim); display: flex; align-items: center; gap: 6px; user-select: none;
+}
+details.explanation > summary::-webkit-details-marker { display: none; }
+details.explanation > summary::before { content: "▸"; color: var(--accent); transition: transform .2s ease; display: inline-block; }
+details.explanation[open] > summary::before { transform: rotate(90deg); }
+.explanation-body {
+  margin-top: 12px; font-size: 0.95rem; color: var(--text);
+  background: var(--bg-soft); border-radius: 12px; padding: 14px 16px;
+}
+.explanation-body h6 { display: none; }
+.explanation-body ul, .explanation-body ol { margin: 8px 0; padding-left: 22px; }
+.explanation-body li { margin-bottom: 4px; }
+.explanation-body p { margin: 8px 0; }
+.explanation-body img { max-width: 100%; border-radius: 8px; margin: 8px 0; display: block; }
+.explanation-body font[color="#0000ff"], .explanation-body font[color="#0000FF"] { color: var(--text) !important; }
+.explanation-body font[color="#ff0000"], .explanation-body font[color="#FF0000"] { color: var(--accent) !important; font-weight: 600; }
+
+@media (max-width: 480px) {
+  .answer, details.explanation { margin-left: 0; }
+  .q-head { gap: 10px; }
+}
+
+footer.encourage {
+  text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 40px;
+  padding-top: 20px; border-top: 1px dashed var(--card-border);
+}
+footer.encourage strong { color: var(--accent); }

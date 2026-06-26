@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Hub · MCQ Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span> Study Hub</div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+  </div>
+  <main>
+    <div class="hero">
+      <h1>Pick a subject</h1>
+      <p>MCQs with answers and explanations, organized into bite-sized lessons.</p>
+    </div>
+
+    <div class="grid">
+      <a class="nav-card" href="pakstudy/index.html">
+        <div class="seal">PS</div>
+        <div class="card-body">
+          <p class="card-title">Pak Study</p>
+          <p class="card-sub">1 source · lessons in progress</p>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+      <div class="nav-card disabled">
+        <div class="seal">GK</div>
+        <div class="card-body">
+          <p class="card-title">General Knowledge</p>
+          <p class="card-sub">Coming soon</p>
+        </div>
+        <span class="badge-soon">Soon</span>
+      </div>
+
+      <div class="nav-card disabled">
+        <div class="seal">IS</div>
+        <div class="card-body">
+          <p class="card-title">Islamic Study</p>
+          <p class="card-sub">Coming soon</p>
+        </div>
+        <span class="badge-soon">Soon</span>
+      </div>
+    </div>
+
+    <footer class="encourage">
+      More subjects are on the way. <strong>One subject at a time</strong> — start with what's ready.
+    </footer>
+  </main>
+  <script src="theme.js"></script>
+</body>
+</html>
